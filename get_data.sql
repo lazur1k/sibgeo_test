@@ -6,7 +6,7 @@ series AS "Серия",
 num AS "Номер",
 kind AS "Вид",
 issue_date AS "Дата выдачи",
-validity_period AS "Срок действия"
+IF (validity_period IS NULL, 'Бессрочное', validity_period) AS "Срок действия"
 FROM area
 JOIN company
 ON area.company_id = company.id
